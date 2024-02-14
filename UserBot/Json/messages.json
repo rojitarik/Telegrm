@@ -179,7 +179,7 @@
         "MANUAL_LIN": "📥Linux:\n<a href='https://github.com/MatsuriDayo/nekoray/releases'>Nekoray</a>",
         "MANUAL_MAC": "📥Mac:\n<a href='https://github.com/MatsuriDayo/nekoray/releases'>Nekoray</a>",
         "MANUAL_HDR": "تکایە ئامێرەکەتان هەڵبژێرن",
-        "WELCOME_TO_ADMIN": "ربات کاربران هیدی بات با موفقیت راه‌اندازی شد.\nبرای شروع کار، دستور /start را ارسال کنید.",
+        "WELCOME_TO_ADMIN": "ڕۆباتی بەکارهێنەران نوێ کرایەوە.\nبۆ دەستپێکردن /start بنێرە.",
         "BUY_SUBSCRIPTION_CLOSED": "لە ئێستایا کڕینی هەژمار بەردەست نییە.",
         "RENEWAL_SUBSCRIPTION_CLOSED": "لە ئێستایا درێژکردنەوەی ماوەی هەژمار بەردەست نییە.",
         "INFO_USER_NAME": "⬖ بەکارهێنەر:",
