@@ -88,7 +88,7 @@ fi
 echo -e "${GREEN}Step 1: Cloning the repository and changing directory...${RESET}"
 
 repository_url="https://github.com/rojitarik/Telegrm.git"
-install_dir="/opt/Hiddify-Telegram-Bot"
+install_dir="/opt/ayoub_bot"
 
 branch="main"
 
