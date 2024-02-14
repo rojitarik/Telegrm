@@ -63,12 +63,12 @@ def owner_info_template(card_number, card_holder_name, price, header=""):
         return f"""
 {header}
 
-💰لطفا دقیقا مبلغ: <code>{price}</code> {MESSAGES['RIAL']}
-💴معادل: {rial_to_toman(price)} {MESSAGES['TOMAN']}
-💳را به شماره کارت: <code>{card_number}</code>
-👤به نام <b>{card_holder_name}</b> واریز کنید.
+💰تکایە بڕی: <code>{price}</code> {MESSAGES['RIAL']}
+💴کە ئەبێتە: {rial_to_toman(price)} {MESSAGES['TOMAN']}
+💳بۆ ژمارە کارتی: <code>{card_number}</code>
+👤بە ناوی <b>{card_holder_name}</b> بنێرن.
 
-❗️بعد از واریز مبلغ، اسکرین شات از تراکنش را برای ما ارسال کنید.
+❗️دواتر وێنەی پارە ناردنەکە بنێرە.
 """
     elif LANG == 'EN':
         return f"""
@@ -92,13 +92,13 @@ def payment_received_template(payment,user, header="", footer=""):
         return f"""
 {header}
 
-شناسه تراکنش: <code>{payment['id']}</code>
-مبلغ تراکنش: <b>{rial_to_toman(payment['payment_amount'])}</b> {MESSAGES['TOMAN']}
+پێناسەی ناردن: <code>{payment['id']}</code>
+بڕی ناردن: <b>{rial_to_toman(payment['payment_amount'])}</b> {MESSAGES['TOMAN']}
 {MESSAGES['INFO_USER_NAME']} <b>{name}</b>
 {MESSAGES['INFO_USER_USERNAME']} {username}
 {MESSAGES['INFO_USER_NUM_ID']} {user['telegram_id']}
 ---------------------
-⬇️درخواست افزایش موجودی کیف پول⬇️
+⬇️ شارژکردنەوەی باڵانسەکەت ⬇️
 
 {footer}
 """
@@ -123,23 +123,23 @@ def connection_help_template(header=""):
         return f"""
 {header}
 
-⭕️ نرم افزار های مورد نیاز برای اتصال به کانفیگ
+⭕️ ئەو بەرنامانەی کە پێویستن بۆ وەسڵ بوون
     
-📥اندروید:
+📥 ئەندرۆید:
 <a href='https://play.google.com/store/apps/details?id=com.v2ray.ang'>V2RayNG</a>
 <a href='https://play.google.com/store/apps/details?id=ang.hiddify.com'>HiddifyNG</a>
 
-📥آی او اس:
+📥 ئایفۆن:
 <a href='https://apps.apple.com/us/app/streisand/id6450534064'>Streisand</a>
 <a href='https://apps.apple.com/us/app/foxray/id6448898396'>Foxray</a>
 <a href='https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690'>V2box</a>
 
-📥ویندوز:
+📥 ویندۆوز:
 <a href='https://github.com/MatsuriDayo/nekoray/releases'>Nekoray</a>
 <a href='https://github.com/2dust/v2rayN/releases'>V2rayN</a>
 <a href='https://github.com/hiddify/HiddifyN/releases'>HiddifyN</a>
 
-📥مک و لینوکس:
+📥 مەک و لینوکس:
 <a href='https://github.com/MatsuriDayo/nekoray/releases'>Nekoray</a>
 """
 
@@ -181,7 +181,7 @@ def connection_help_template(header=""):
 #         return f"""
 # {header}
 
-# 📞پشتیبانی: {username}
+# 📞 بەڕێوەبەر: {username}
 # """
 
 #     elif LANG == 'EN':
@@ -196,9 +196,9 @@ def connection_help_template(header=""):
 def package_days_expire_soon_template(sub_id, remaining_days):
     if LANG == 'FA':
         return f"""
-تنها {remaining_days} روز تا اتمام اعتبار پکیج شما باقی مانده است.
-لطفا برای تمدید پکیج اقدام کنید.
-شناسه پکیج شما: <code>{sub_id}</code>
+تەنیا {remaining_days} ڕۆژ ماوە بۆ کۆتایی هەژمارەکەت.
+ئەگەر حەزت لێبوو ماوەی هەژمارەکەت درێژ بکەوە.
+پێناسەی هەژمارەکەت : <code>{sub_id}</code>
 """
     elif LANG == 'EN':
         return f"""
@@ -212,10 +212,10 @@ Your package ID: <code>{sub_id}</code>
 def package_size_end_soon_template(sub_id, remaining_size):
     if LANG == 'FA':
         return f"""
-تنها {remaining_size} گیگابایت تا اتمام اعتبار پکیج شما باقی مانده است.
-لطفا برای تمدید پکیج اقدام کنید.
+تەنیا {remaining_size} گیگابایت ماوە بۆ کۆتایی هاتنی قەبارەی هەژمارەکەت.
+قەبارەی هەژمارەکەت زیا بکە.
 
-شناسه پکیج شما: <code>{sub_id}</code>
+پێناسەی هەژمارەکەت : <code>{sub_id}</code>
 """
     elif LANG == 'EN':
         return f"""
@@ -227,10 +227,10 @@ Your package ID: <code>{sub_id}</code>
 def renewal_unvalable_template(settings):
     if LANG == 'FA':
         return f"""
-🛑در حال حاضر شما امکان تمدید اشتراک خود را ندارید.
-جهت تمدید اشتراک باید یکی از شروط زیر برقرار باشد:
-1- کمتر از {settings['advanced_renewal_days']} روز تا اتمام اشتراک شما باقی مانده باشد.
-2- حجم باقی مانده اشتراک شما کمتر از {settings['advanced_renewal_usage']} گیگابایت باشد.
+🛑 لە ئێستایا ناتوانی هەژمارەکەت نوێ بکەیتەوە.
+چونکە ئەبێ:
+1- کەمتر لە {settings['advanced_renewal_days']} ڕۆژت مابێ بۆ کۆتایی هاتنی ماوەی هەژمارەکەت .
+2- قەبارەی بەکارنەهاتووی هەژمارەکەت کەمتر لە{settings['advanced_renewal_usage']} گیگابایت بێت.
 """
     elif LANG == 'EN':
         return f"""
