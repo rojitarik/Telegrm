@@ -7,7 +7,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 YELLOW='\033[0;33m'
 RESET='\033[0m' # Reset text color
-install_dir="/opt/Hiddify-Telegram-Bot"
+install_dir="/opt/ayoub_bot"
 
 # Function to display colored messages
 function display_message() {
@@ -56,7 +56,7 @@ function reinstall_bot() {
       }
 
       # Remove the old bot
-      rm -rf /opt/Hiddify-Telegram-Bot
+      rm -rf /opt/ayoub_bot
 
       # Run the installation script
       bash -c "$(curl -Lfo- https://raw.githubusercontent.com/rojitarik/Telegrm/main/install.sh)"
@@ -112,7 +112,7 @@ function update_bot() {
 # get backup of Database/hidyBot.db
 function get_backup() {
   display_message "${GREEN}Getting backup of Database/hidyBot.db...${RESET}"
-  if cp /opt/Hiddify-Telegram-Bot/Database/hidyBot.db /opt/Hiddify-Telegram-Bot/Database/hidyBot.db.bak; then
+  if cp /opt/ayoub_bot/Database/hidyBot.db /opt/ayoub_bot/Database/hidyBot.db.bak; then
     display_message "${GREEN}Backup of Database/hidyBot.db has been taken.${RESET}"
   else
     display_message "${RED}Failed to get backup of Database/hidyBot.db.${RESET}"
@@ -126,11 +126,11 @@ stop_bot
 display_message "Please wait for 5 seconds ..."
 sleep 5
 # If version.py does not exist, offer to reinstall the bot; otherwise, update it
-if [ ! -f /opt/Hiddify-Telegram-Bot/version.py ]; then
+if [ ! -f /opt/ayoub_bot/version.py ]; then
   reinstall_bot
 else
 
-  current_version=$(python3 /opt/Hiddify-Telegram-Bot/version.py --version)  
+  current_version=$(python3 /opt/ayoub_bot/version.py --version)  
   get_backup
   update_bot
 
@@ -146,7 +146,7 @@ else
   echo -e "${YELLOW}Current version: $current_version${RESET}"
   echo -e "${YELLOW}Target version: $target_version${RESET}"
   
-  if python3 /opt/Hiddify-Telegram-Bot/update.py --current-version "$current_version" --target-version "$target_version"; then
+  if python3 /opt/ayoub_bot/update.py --current-version "$current_version" --target-version "$target_version"; then
       echo "update.py has been run."
   else
       echo "update.py has not been run."
